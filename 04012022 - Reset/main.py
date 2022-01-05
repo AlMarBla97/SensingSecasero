@@ -11,3 +11,4 @@ pycom.heartbeat(True)
 #modifico esto en la ramav1, y a ver que pasa
 #Meto esto en el master, a ver ha conflicto con diseñador.
 #Esto lo meto desde Diseñador 2. 
+#Meto esto en el editor, para ver si me lo sube a Github.
