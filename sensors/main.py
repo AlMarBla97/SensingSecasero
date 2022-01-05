@@ -1,9 +1,8 @@
-from lib.sensing import printWData
-from sensing import redLed, getTime
+from sensing import sense as se
 
-print('main1')
-getTime()
-print('main2')
-redLed(10)
-print('main3')
-printWData()
+print('Enter in Main')
+
+se.getTemp()
+se.getHum()
+
+print('Finishs Main')
