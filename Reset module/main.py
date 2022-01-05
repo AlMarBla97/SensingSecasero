@@ -1,7 +1,8 @@
-from led import redled
+from sensing import sense as se
 
 print('Enter in Main')
 
-redled(3)
+se.getTemp()
+se.getHum()
 
 print('Finishs Main')
