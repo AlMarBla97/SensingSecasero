@@ -9,7 +9,8 @@
 #
 
 """ LoPy LoRaWAN Nano Gateway. Can be used for both EU868 and US915. """
-
+import pycom                                            #Linea añadida por Alberto para poder controlar el LED
+import time                                             #Linea añadida por Alberto para poder controlar el LED
 import errno
 import machine
 import ubinascii
@@ -23,7 +24,7 @@ from network import LoRa
 from network import WLAN
 from machine import Timer
 
-
+pycom.heartbeat(False)                                    #Linea añadida por Alberto para poder controlar el LED
 PROTOCOL_VERSION = const(2)
 
 PUSH_DATA = const(0)
@@ -185,6 +186,10 @@ class NanoGateway:
 
         self.lora.callback(trigger=(LoRa.RX_PACKET_EVENT | LoRa.TX_PACKET_EVENT), handler=self._lora_cb)
         self._log('LoRaWAN nano gateway online')
+        pycom.rgbled(0x009900)                                          #Linea añadida por Alberto para poder controlar el LED
+        time.sleep(1)                                                   #Linea añadida por Alberto para poder controlar el LED; Se pone un segundo verde para confirmar la conexión.
+        pycom.heartbeat(True)                                           #Linea añadida por Alberto para poder controlar el LED
+
 
     def stop(self):
         """
