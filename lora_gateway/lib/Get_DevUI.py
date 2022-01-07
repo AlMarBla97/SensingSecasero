@@ -20,7 +20,7 @@ print('')
 
 
 wl = WLAN()
-binascii.hexlify(wl.mac().sta_mac)[:6] + 'fffe' + binascii.hexlify(wl.mac().sta_mac)[6:]
+print('Este es el EUI: ',binascii.hexlify(wl.mac().sta_mac)[:6] + 'ffff' + binascii.hexlify(wl.mac().sta_mac)[6:])
 
 print('')
 print('')

@@ -42,7 +42,7 @@ if True: #__name__ == '__main__':
         ntp_server=config.NTP,
         ntp_period=config.NTP_PERIOD_S
         )
-
+    print(str(config.GATEWAY_ID))
     nanogw.start()
     #nanogw._log('You may now press ENTER to enter the REPL')
     #input()
