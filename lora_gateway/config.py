@@ -14,8 +14,12 @@ PORT = 1700
 NTP = "pool.ntp.org"
 NTP_PERIOD_S = 3600
 
+WIFI_SSID = 'MOVISTAR_6CD0'
+WIFI_PASS = 'b4RbUL5GCsCArvQ6wohn'
+'''
 WIFI_SSID = 'OnePlus 6'
 WIFI_PASS = 'Miau2323'
+'''
 
 # for IN865
 # LORA_FREQUENCY = 865062500

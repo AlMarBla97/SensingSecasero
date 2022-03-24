@@ -12,6 +12,7 @@ from network import LoRa
 import socket
 import binascii
 import struct
+import ustruct
 import time
 import config
 
@@ -53,12 +54,18 @@ s.setsockopt(socket.SOL_LORA, socket.SO_DR, config.LORA_NODE_DR)
 # make the socket non-blocking
 s.setblocking(False)
 
-for i in range (200):
-    pkt = b'PKT #' + bytes([i])
+for i in range (200):                                   #Envia el valor de value, pero no desenpaqueta bien. Solo me devuelve el primer valor de la tupla. Pero si que envia los datos por LOra
+    value = 2.7+i                                       #
+    pkt = struct.pack('f', value, 2.1+i )
+
     print('Sending:', pkt)
+    Upkt= struct.unpack('f', pkt)
+    print('Long tupla: ', len(Upkt))
+    print('Unpacked Packet 0: ', Upkt[0] )
+  #  print('Unpacked Packet 1: ', Upkt[1] )
     s.send(pkt)
     time.sleep(4)
     rx, port = s.recvfrom(256)
     if rx:
         print('Received: {}, on port: {}'.format(rx, port))
-    time.sleep(6)
+    time.sleep(2)
